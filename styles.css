@@ -37,6 +37,9 @@ a {
 
 .nav-left a {
   color: white;
+  letter-spacing: .5rem;
+  font-weight: 500;
+  text-align: center;
 }
 
 .search-bar {
@@ -112,7 +115,6 @@ a {
 }
 
 /*PAGE SECTION*/
-/*PAGE SECTION*/
 #page-content {
   background-color: white;
   color: black;
@@ -133,7 +135,7 @@ a {
 }
 
 #page-content p {
-  font-size: 1.2em;
+  font-size: 1em;
   line-height: 1.6;
   text-align: justify;
 }
@@ -164,6 +166,14 @@ a {
   margin-right: 10px;
 }
 
+.shop-now-btn a:hover {
+  text-decoration: underline;
+}
+
+.shop-now-btn a:visited {
+  color: white;
+}
+
 .our-story-btn {
   border: 0;
   background-color: white;
@@ -172,6 +182,10 @@ a {
 
 .our-story-btn:hover {
   border-bottom: 1px solid black;
+}
+
+.our-story-btn a:visited {
+  color: black;
 }
 
 /*FOOTER*/
