@@ -24,6 +24,10 @@
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="styles-shop.css" />
 
+    <link 
+      rel="stylesheet" 
+      href="app.js"/>
+
     <title>SHOP</title>
   </head>
   
@@ -54,7 +58,7 @@
       </nav>
     </header>
 
-    <main>
+    <main class="root">
       <section class="shop-home" id="shop-home"></section>
         <div class="background">
           <img src="images/cat-002.webp" alt="cat" class="shop-background-img">
@@ -67,21 +71,104 @@
       <section class="shop-content" id="shop-content">
         <div class="shop-container">
 
-          <div class="category" id="category-helmet">
-            <img src="images/helm/helm-005.png" alt="Helmet" class="category--image">
-            <h2 class="category-title">PURRTECTION HELMET</h2>
-            <p class="category-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+          <div class="products-sorting">
+            <label for="sort">Sort by price:</label>
+            <select id="sort" class="sort-dropdown">
+              <option value="asc">Ascending</option>
+              <option value="desc">Descending</option>
+            </select>
           </div>
 
-          <div class="category" id="visor-category">
-            <img src="images/visor/visor-001.png" alt="Visor" class="category--image">
-            <h2 class="category-title">CAT-EYES VISOR</h2>
-            <p class="category-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+          <div class="products-sorting">
+            <label for="sort">Sort by category:</label>
+            <select id="sort" class="sort-dropdown">
+              <option value="helmet">Helmet</option>
+              <option value="visor">Visor</option>
+              <option value="vest">Vest</option>
+              <option value="fatigue">Fatigue</option>
+              <option value="accessories">Accessories</option>
+            </select>
           </div>
+
+          <ul>
+
+          </ul>
+<!--
+          <ul>
+            <li class="product">
+              <div class="product-card">
+                <img 
+                src="images/helm/helm-005.png" 
+                alt="Helmet" 
+                class="product--image"
+                />
+                <div class="product-text">
+                  <h2 class="product-title">PURRTECTION HELMET</h2>
+                  <p class="product--price">99.99 €</p>
+                  <p class="product-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                  <button class="product--buy">Buy Now</button>
+                  <button class="add-to-cart">Add to Cart</button>
+                </div>
+              </div>
+            </li>
+
+            <li class="product">
+              <div class="product-card">
+                <img 
+                src="images/visor/visor-001.png" 
+                alt="Visor" 
+                class="product--image"
+                />
+                <div class="product-text">
+                  <h2 class="product-title">CAT-EYES VISOR</h2>
+                  <p class="product--price">99.99 €</p>
+                  <p class="product-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                  <button class="product--buy">Buy Now</button>
+                  <button class="add-to-cart">Add to Cart</button>
+                </div>
+              </div>
+            </li>
+
+            <li class="product">
+              <div class="product-card">
+                <img 
+                src="images/vest/vest-006.png" 
+                alt="Vest" 
+                class="category--image"
+                />
+                <div class="product-text">
+                  <h2 class="product-title">MEOWTARY VEST</h2>
+                  <p class="product--price">99.99 €</p>
+                  <p class="product-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                  <button class="product--buy">Buy Now</button>
+                  <button class="add-to-cart">Add to Cart</button>
+                </div>
+              </div>
+            </li>
+
+          </ul>
+
+          <li class="product">
+            <div class="product-card">
+              <img 
+              src="images/vest/vest-006.png" 
+              alt="Vest" 
+              class="category--image"
+              />
+              <div class="product-text">
+                <h2 class="product-title">MEOWTARY VEST</h2>
+                <p class="product--price">99.99 €</p>
+                <p class="product-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                <button class="product--buy">Buy Now</button>
+                <button class="add-to-cart">Add to Cart</button>
+              </div>
+            </div>
+          </li>
+
 
           <div class="category" id="vest-category">
             <img src="images/vest/vest-006.png" alt="Vest" class="category--image">
-            <h2 class="category-title">MEOWTARY VEST</h2>
+            <h2 class="category-title"></h2>
             <p class="category-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
           </div>
 
@@ -108,7 +195,7 @@
             <h2 class="category-title">SCRATCH POST</h2>
             <p class="category-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
           </div>
-
+-->
         </div>
       </section>
     </main>
