@@ -54,15 +54,45 @@ const products = [
       name: "SCRATCH POST 702",
       price: "7.02 €",
       description: "Description for product 702.",
-      image: "https://github.com/IndignusDomino/modern-catfare/blob/main/images/06-harness/harness-002.png",
+      image: "https://github.com/IndignusDomino/modern-catfare/blob/main/images/07-post/post-002.png",
     },
     // Add more products as needed
   ];
 
 
+// Function to generate product elements
+function generateProductElements() {
+  const productContainer = document.querySelector(".products-container ul");
+
+  products.forEach((product) => {
+    const productElement = document.createElement("li");
+    productElement.classList.add("product"); 
+
+    productElement.innerHTML = `
+      <div class="product-card">
+        <img src="${product.image}" alt="${product.name}" class="product-image" />
+        <div class="product-text">
+          <h2 class="product-title">${product.name}</h2>
+          <p class="product-price">${product.price}</p>
+          <p class="product-description">${product.description}</p>
+          <button class="add-to-cart">Add to Cart</button>
+          <button class="product-buy">Buy Now</button>
+        </div>
+      </div>
+    `;
+
+    productContainer.appendChild(productElement);
+  });
+}
+
+// Call the function to generate the products
+generateProductElements();
+
+
+/*
   // Function to generate product elements
 function generateProductElements() {
-    const productContainer = document.querySelector("main section ul");
+    const productContainer = document.querySelector(".products-container ul");
   
     products.forEach((product) => {
       const productElement = document.createElement("li");
@@ -79,3 +109,4 @@ function generateProductElements() {
       productContainer.appendChild(productElement);
     });
   }
+    */
