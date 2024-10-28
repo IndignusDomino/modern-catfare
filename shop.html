@@ -4,8 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link 
+      rel="preconnect" 
+      href="https://fonts.googleapis.com" />
+    <link 
+      rel="preconnect" 
+      href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet" />
@@ -18,10 +22,13 @@
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles-shop.css" />
 
-    <title>Modern Catfare - Shop</title>
+    <script src="app.js"></script> 
+
+    <title>SHOP</title>
   </head>
+  
   <body>
     <div class="flex-containter">
     <header>
@@ -31,15 +38,15 @@
         </div>
 
         <div class="search-bar">
-          <input type="text" placeholder="Search..." />
+          <input type="text" placeholder="&#128270; Search... " />
         </div>
 
         <div class="nav-center">
           <div class="menu-list">
-            <a href="#">HOME</a>
-            <a href="#">SHOP</a>
-            <a href="#">ABOUT</a>
-            <a href="#">CONTACT</a>
+            <a href="#home">HOME</a>
+            <a href="shop.html" target="_blank">SHOP</a>
+            <a href="about.html" target="_blank">ABOUT</a>
+            <a href="contact.html" target="_blank">CONTACT</a>
           </div>
         </div>
 
@@ -49,73 +56,259 @@
       </nav>
     </header>
 
-    <main>
-      
+    <main class="root">
+      <section class="shop-home" id="shop-home"></section>
+        <div class="background">
+          <img src="images/cat-002.webp" alt="cat" class="shop-background-img">
+        </div>
+        <div class="hero">
+          <h1 class="hero-text">FIND THE<br>PERFECT FIT</h1>
+        </div>
+      </section>
+
+      <section class="shop-content" id="shop-content">
+        <div class="shop-container">
+
+          <div class="filter-container">
+            <div class="products-sorting">
+              <label for="sort">Sort by price:</label>
+              <select id="sort" class="sort-dropdown">
+                <option value="asc">Ascending</option>
+                <option value="desc">Descending</option>
+              </select>
+            </div>
+  
+            <div class="products-sorting">
+              <label for="sort">Sort by category:</label>
+              <select id="sort" class="sort-dropdown">
+                <option value="helmet">Helmet</option>
+                <option value="visor">Visor</option>
+                <option value="vest">Vest</option>
+                <option value="fatigue">Fatigue</option>
+                <option value="accessories">Accessories</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="products-container">
+            <ul>
+
+              <li class="product">
+                <div class="product-card">
+                  <img 
+                  src="images/01-helm/helm-001.png" 
+                  alt="Helmet" 
+                  class="product-image"
+                  />
+                  <div class="product-text">
+                    <h2 class="product-title">PURRTECTION HELMET 101</h2>
+                    <p class="product-price">01.01 €</p>
+                    <p class="product-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                    <button class="product-buy">Buy Now</button>
+                    <button class="add-to-cart">Add to Cart</button>
+                  </div>
+                </div>
+              </li>
+  
+              <li class="product">
+                <div class="product-card">
+                  <img 
+                  src="images/02-visor/visor-001.png" 
+                  alt="Helmet" 
+                  class="product-image"
+                  />
+                  <div class="product-text">
+                    <h2 class="product-title">CAT-EYES VISOR 201</h2>
+                    <p class="product-price">02.01 €</p>
+                    <p class="product-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                    <button class="product-buy">Buy Now</button>
+                    <button class="add-to-cart">Add to Cart</button>
+                  </div>
+                </div>
+              </li>
+  
+              <li class="product">
+                <div class="product-card">
+                  <img 
+                  src="images/03-fatigue/fatigue-003.png" 
+                  alt="Helmet" 
+                  class="product-image"
+                  />
+                  <div class="product-text">
+                    <h2 class="product-title">MEOWTARY FATIGUE 301</h2>
+                    <p class="product-price">03.01 €</p>
+                    <p class="product-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                    <button class="product-buy">Buy Now</button>
+                    <button class="add-to-cart">Add to Cart</button>
+                  </div>
+                </div>
+              </li>
+  
+              <li class="product">
+                <div class="product-card">
+                  <img 
+                  src="images/04-claw/claw-001.png" 
+                  alt="Helmet" 
+                  class="product-image"
+                  />
+                  <div class="product-text">
+                    <h2 class="product-title">CAT-ANA CLAWS 401</h2>
+                    <p class="product-price">04.01 €</p>
+                    <p class="product-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                    <button class="product-buy">Buy Now</button>
+                    <button class="add-to-cart">Add to Cart</button>
+                  </div>
+                </div>
+              </li>
+  
+              <li class="product">
+                <div class="product-card">
+                  <img 
+                  src="images/05-vest/vest-001.png" 
+                  alt="Helmet" 
+                  class="product-image"
+                  />
+                  <div class="product-text">
+                    <h2 class="product-title">PURRTECTION VEST 501</h2>
+                    <p class="product-price">05.01 €</p>
+                    <p class="product-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                    <button class="product-buy">Buy Now</button>
+                    <button class="add-to-cart">Add to Cart</button>
+                  </div>
+                </div>
+              </li>
+  
+              <li class="product">
+                <div class="product-card">
+                  <img 
+                  src="images/06-harness/harness-001.png" 
+                  alt="Helmet" 
+                  class="product-image"
+                  />
+                  <div class="product-text">
+                    <h2 class="product-title">PLUSH HARNESS 601</h2>
+                    <p class="product-price">06.01 €</p>
+                    <p class="product-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                    <button class="product-buy">Buy Now</button>
+                    <button class="add-to-cart">Add to Cart</button>
+                  </div>
+                </div>
+              </li>
+  
+              <li class="product">
+                <div class="product-card">
+                  <img 
+                  src="images/07-harness/post-001.png"
+                  alt="Helmet" 
+                  class="product-image"
+                  />
+                  <div class="product-text">
+                    <h2 class="product-title">SCRATCH POST 701</h2>
+                    <p class="product-price">07.01 €</p>
+                    <p class="product-description">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+                    <button class="product-buy">Buy Now</button>
+                    <button class="add-to-cart">Add to Cart</button>
+                  </div>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer>
-        <div class="footer">
-          <div class="heading">
-            <h2>M O D E R N&nbsp;&nbsp;C A T F A R E <sup>&trade;</sup></h2>
+      <div class="footer">
+        <div class="heading">
+          <h2>M O D E R N&nbsp;&nbsp;C A T F A R E <sup>&trade;</sup></h2>
+        </div>
+        <div class="content">
+          <div class="services">
+            <h4>Products</h4>
+            <p><a href="#">Gears</a></p>
+            <p><a href="#">Arsenal</a></p>
+            <p><a href="#">Accessories</a></p>
           </div>
-          <div class="content">
-            <div class="services">
-              <h4>Products</h4>
-              <p><a href="#">Gears</a></p>
-              <p><a href="#">Arsenal</a></p>
-              <p><a href="#">Accessories</a></p>
-            </div>
-            <div class="social-media">
-              <h4>Social</h4>
-              <p>
-                <a href="https://www.linkedin.com/in/jrnotarte/"
-                  ><i class="fab fa-linkedin"></i> Linkedin</a
-                >
-              </p>
-              <p>
-                <a href="https://x.com"
-                  ><i class="fab fa-twitter"></i> Twitter</a
-                >
-              </p>
-              <p>
-                <a href="https://github.com/IndignusDomino/modern-catfare"
-                  ><i class="fab fa-github"></i> Github</a
-                >
-              </p>
-              <p>
-                <a href="https://www.facebook.com/"
-                  ><i class="fab fa-facebook"></i> Facebook</a
-                >
-              </p>
-              <p>
-                <a href="https://www.instagram.com/"
-                  ><i class="fab fa-instagram"></i> Instagram</a
-                >
-              </p>
-            </div>
-            <div class="links">
-              <h4>Quick links</h4>
-              <p><a href="blogs.html">Blogs</a></p>
-              <p><a href="shop.html">Shop</a></p>
-              <p><a href="about.html">About</a></p>
-              <p><a href="contact.html">Contact</a></p>
-            </div>
-            <div class="details">
-              <h4 class="address">Address</h4>
-              <p>
-                Lorem ipsum dolor sit amet consectetur <br />
-                adipisicing elit. Cupiditate, qui!
-              </p>
-              <h4 class="mobile">Mobile</h4>
-              <p><a href="#">+49123456789</a></p>
-              <h4 class="mail">Email</h4>
-              <p><a href="#">JohnRaymond@gmail.com</a></p>
-            </div>
+          <div class="social-media">
+            <h4>Social</h4>
+            <p><a href="https://www.linkedin.com/in/jrnotarte/"><i class="fab fa-linkedin"></i> Linkedin</a></p>
+            <p><a href="https://x.com"><i class="fab fa-twitter"></i> Twitter</a></p>
+            <p><a href="https://github.com/IndignusDomino/modern-catfare"><i class="fab fa-github"></i> Github</a></p>
+            <p><a href="https://www.facebook.com/"><i class="fab fa-facebook"></i> Facebook</a></p>
+            <p><a href="https://www.instagram.com/"><i class="fab fa-instagram"></i> Instagram</a></p>
           </div>
-          <footer>
-            <hr />
-            © 2024 IndignusDomino
-          </footer>
+          <div class="links">
+            <h4>Quick links</h4>
+            <p><a href="blogs.html" target="_blank">Blogs</a></p>
+            <p><a href="shop.html" target="_blank">Shop</a></p>
+            <p><a href="about.html" target="_blank">About</a></p>
+            <p><a href="contact.html" target="_blank">Contact</a></p>
+          </div>
+          <div class="details">
+            <h4 class="address">Address</h4>
+            <p>
+              Lorem ipsum dolor sit amet consectetur <br />
+              adipisicing elit. Cupiditate, qui!
+            </p>
+            <h4 class="mobile">Mobile</h4>
+            <p><a href="#">+49123456789</a></p>
+            <h4 class="mail">Email</h4>
+            <p><a href="mailto:contact@modern-catfare.com">contact@modern-catfare.com</a></p>
+          </div>
+        </div>
+        <footer>
+          <hr />
+          © 2024 IndignusDomino
+        </footer>
       </div>
+    </footer>
+
+    <script>
+      //array of Products
+const products = [
+    {
+      category: "Helmet",
+      id: 1,
+      name: "Purrtection Helmet 001",
+      price: "$19.99",
+      description: "Description for product 1.",
+      image: "\images\helm\helm-001.png",
+    },
+    {
+      category: "Helmet",
+      id: 2,
+      name: "Product 2",
+      price: "$29.99",
+      description: "Description for product 2.",
+      image: "https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg",
+    },
+    // Add more products as needed
+  ];
+
+
+  // Function to generate product elements
+function generateProductElements() {
+    const productContainer = document.querySelector("main section ul");
+  
+    products.forEach((product) => {
+      const productElement = document.createElement("li");
+  
+      productElement.innerHTML = `
+        <img src="${product.image}" alt="${product.name}" />
+        <h1>${product.name}</h1>
+        <p>${product.description}</p>
+        <p>${product.price}</p>
+        <button>Add to Cart</button>
+        <button>Buy Now</button>
+      `;
+  
+      productContainer.appendChild(productElement);
+    });
+  }
+    </script>
+
+    </div>
   </body>
 </html>
