@@ -1,14 +1,15 @@
 //array of Products
 const products = [
     {
-      id: 1,
-      name: "Purrtection Helmet 001",
-      price: "$19.99",
-      description: "Description for product 1.",
-      image: "\images\helm\helm-001.png",
       category: "Helmet",
+      id: 1,
+      name: "Purrtection Helmet 102",
+      price: "01.02 €",
+      description: "Description for product 1.",
+      image: "images/01-helm/helm-001.png",
     },
     {
+      category: "Helmet",
       id: 2,
       name: "Product 2",
       price: "$29.99",

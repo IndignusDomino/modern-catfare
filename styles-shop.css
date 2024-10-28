@@ -122,16 +122,30 @@ a {
 }
 
 
-/*CATGORIES SECTION*/
-.shop-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Creates 3 equal-width columns */
-  gap: 20px; /* Adjust spacing between categories as needed */
+/*SORTING*/
+.filter-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
-.category--image {
-  max-width: 100%; /* Ensures image never exceeds its container width */
-  height: auto; /* Maintains aspect ratio while adjusting to width */
+
+/*PRODUCTS SECTION*/
+.products-container ul {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 20px; 
+  justify-content: center; 
+}
+
+.products-container ul li {
+  list-style-type: none;
+}
+
+.product-image {
+  max-width: 100%;
+  height: auto;
 }
 
 /*FOOTER*/
