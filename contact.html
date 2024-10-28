@@ -41,7 +41,7 @@
 
         <div class="nav-center">
           <div class="menu-list">
-            <a href="#home">HOME</a>
+            <a href="index.html" target="_blank">HOME</a>
             <a href="shop.html" target="_blank">SHOP</a>
             <a href="about.html" target="_blank">ABOUT</a>
             <a href="contact.html" target="_blank">CONTACT</a>
@@ -55,10 +55,32 @@
     </header>
 
     <main>
-      <section class="shop-home" id="shop-home"></section>
+      <section class="contact-home" id="contact-home">
         <div class="background">
           <img src="images/cat-003.webp" alt="cat" class="shop-background-img" style="height: 100vh;">
         </div>
+
+          <div class="form-container">
+            <form action="/">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+              <label for="country">Country</label>
+              <select id="country" name="country">
+                <option value="australia">Australia</option>
+                <option value="canada">Canada</option>
+                <option value="usa">USA</option>
+              </select>
+
+              <label for="subject">Subject</label>
+              <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+              <input type="submit" value="Submit">
+            </form>
+          </div>
       </section>
 
       <section class="contact-content" id="contact-content">
