@@ -85,3 +85,31 @@ document.addEventListener('DOMContentLoaded', (event) => {
       productList.appendChild(productItem);
   });
 });
+
+
+//product sorting asc desc
+
+const productsList = document.getElementById('products-list');
+const sortByNameDropdown = document.getElementById('sort-by-name'); 
+
+sortByNameDropdown.addEventListener('change', () => {
+    const sortOrder = sortByNameDropdown.value;
+    const products = Array.from(productsList.querySelectorAll('.product'));
+
+    products.sort((a, b) => {
+        const nameA = a.querySelector('.product-title').textContent.toLowerCase();
+        const nameB = b.querySelector('.product-title').textContent.toLowerCase();
+
+        if (sortOrder === 'asc') {
+            return nameA.localeCompare(nameB);
+        } else {
+            return nameB.localeCompare(nameA);
+        }
+    });
+
+    // Remove existing product elements
+    productsList.innerHTML = '';
+
+    // Add sorted product elements back to the list
+    products.forEach(product => productsList.appendChild(product));
+});
