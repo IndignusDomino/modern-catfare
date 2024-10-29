@@ -242,6 +242,10 @@ footer hr {
   margin: 2rem 0;
 }
 
+.heading h2 {
+  padding-top: 20px;
+}
+
 @media (max-width: 767px) {
   .footer .content {
     display: flex;

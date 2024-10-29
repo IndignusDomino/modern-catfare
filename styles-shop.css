@@ -127,11 +127,13 @@ a {
   display: flex;
   align-items: center;
   gap: 20px;
+  margin-bottom: 50px;
+  justify-content: right;
 }
 
 
 /*PRODUCTS SECTION*/
-.products-container ul {
+#products-container ul {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr); 
@@ -139,8 +141,17 @@ a {
   justify-content: center; 
 }
 
-.products-container ul li {
+#shop-content {
+  margin-left: 70px;
+  margin-right: 70px;
+}
+
+#products-container ul li {
   list-style-type: none;
+}
+
+.product-card {
+  margin: 1rem;
 }
 
 .product-image {
@@ -148,17 +159,45 @@ a {
   height: auto;
 }
 
+.product-title {
+  font-size: 1.5rem;
+  margin-top: 10px;
+}
+
+.product-price {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color:#2a742e;
+}
+
+.product-description {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.product-buy {
+  background-color: rgb(75, 75, 75);
+  color: white;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.add-to-cart {
+  background-color: white;
+  padding: 10px;
+  border-radius: 20px;
+}
+
 /*CONTACT SECTION*/
- /* Style inputs with type="text", select elements and textareas */
  input[type=text], select, textarea {
-  width: 100%; /* Full width */
-  padding: 12px; /* Some padding */ 
-  border: 1px solid #ccc; /* Gray border */
-  border-radius: 4px; /* Rounded borders */
-  box-sizing: border-box; /* Make sure that padding and width stays in place */
-  margin-top: 6px; /* Add a top margin */
-  margin-bottom: 16px; /* Bottom margin */
-  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+  width: 100%;
+  padding: 12px; 
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
 }
 
 /* Style the submit button with a specific background color etc */
@@ -235,6 +274,11 @@ footer {
 
 footer hr {
   margin: 2rem 0;
+}
+
+.heading h2 {
+  padding-top: 20px;
+  margin-top: 50px;
 }
 
 @media (max-width: 767px) {
