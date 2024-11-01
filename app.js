@@ -59,6 +59,8 @@ const products = [
   // Add more products as needed
 ];
 
+
+//DOM creation of new product elements
 document.addEventListener('DOMContentLoaded', (event) => { 
   const productList = document.getElementById('products-list');
 
