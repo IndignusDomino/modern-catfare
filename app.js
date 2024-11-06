@@ -89,29 +89,115 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 
 
-//product sorting asc desc
 
-const productsList = document.getElementById('products-list');
-const sortByNameDropdown = document.getElementById('sort-by-name'); 
 
-sortByNameDropdown.addEventListener('change', () => {
+//sorty by name
+document.addEventListener('DOMContentLoaded', (event) => {
+  const productsList = document.getElementById('products-list');
+  const sortByNameDropdown = document.getElementById('sort-name'); 
+
+  sortByNameDropdown.addEventListener('change', () => {
     const sortOrder = sortByNameDropdown.value;
     const products = Array.from(productsList.querySelectorAll('.product'));
 
     products.sort((a, b) => {
-        const nameA = a.querySelector('.product-title').textContent.toLowerCase();
-        const nameB = b.querySelector('.product-title').textContent.toLowerCase();
+      const nameA = a.querySelector('.product-title').textContent.toLowerCase();
+      const nameB = b.querySelector('.product-title').textContent.toLowerCase();
 
-        if (sortOrder === 'asc') {
-            return nameA.localeCompare(nameB);
-        } else {
-            return nameB.localeCompare(nameA);
-        }
+      return sortOrder === 'asc' ? nameA.localeCompare(nameB) : nameB.localeCompare(nameA); 
     });
 
-    // Remove existing product elements
     productsList.innerHTML = '';
-
-    // Add sorted product elements back to the list
-    products.forEach(product => productsList.appendChild(product));
+    products.forEach(product => productsList.appendChild(product)); 
+  });
 });
+
+
+
+
+// sort by price
+document.addEventListener('DOMContentLoaded', (event) => {
+  const productsList = document.getElementById('products-list');
+  const sortByPriceDropdown = document.getElementById('sort-price'); 
+
+  sortByPriceDropdown.addEventListener('change', () => {
+      const sortOrder = sortByPriceDropdown.value;
+      const products = Array.from(productsList.querySelectorAll('.product'));
+
+      products.sort((a, b) => {
+          const priceA = parseFloat(a.querySelector('.product-price').textContent.replace(/[^0-9.]/g, '')); 
+          const priceB = parseFloat(b.querySelector('.product-price').textContent.replace(/[^0-9.]/g, ''));
+
+          if (sortOrder === 'asc') {
+              return priceA - priceB;
+          } else {
+              return priceB - priceA;
+          }
+      });
+
+      productsList.innerHTML = '';
+      products.forEach(product => productsList.appendChild(product));
+  });
+});
+
+
+
+/*
+// sort by category
+document.addEventListener('DOMContentLoaded', (event) => {
+  const productsList = document.getElementById('products-list');
+  const sortByCategoryDropdown = document.getElementById('sort-category'); 
+
+  sortByCategoryDropdown.addEventListener('change', () => {
+      const selectedCategory = sortByCategoryDropdown.value;
+      const products = Array.from(productsList.querySelectorAll('.product'));
+
+      products.sort((a, b) => {
+          // Get the category of each product 
+          const categoryA = getCategory(a);
+          const categoryB = getCategory(b);
+
+          // Comparison logic
+          if (selectedCategory === 'sort-x-category') {
+              // No specific category selected, maintain original order
+              return 0; 
+          } else if (categoryA === selectedCategory && categoryB !== selectedCategory) {
+              // a is in the selected category, b is not
+              return -1; 
+          } else if (categoryA !== selectedCategory && categoryB === selectedCategory) {
+              // b is in the selected category, a is not
+              return 1; 
+          } else {
+              // Both are in the selected category or neither are
+              return 0; 
+          }
+      });
+
+      productsList.innerHTML = '';
+      products.forEach(product => productsList.appendChild(product));
+  });
+
+  // Helper function to determine the category of a product (replace with your actual logic)
+  function getCategory(productElement) {
+      const productName = productElement.querySelector('.product-title').textContent.toLowerCase();
+      if (productName.includes('helmet')) {
+          return 'helmet';
+      } else if (productName.includes('visor')) {
+          return 'visor';
+      } else if (productName.includes('fatigue')) {
+          return 'fatigue';
+      } else if (productName.includes('vest')) {
+          return 'vest';
+      } else if (productName.includes('claw')) {  // Assuming "CAT-ANA CLAWS 401" falls under 'claw'
+          return 'claw';
+      } else if (productName.includes('harness')) {
+          return 'harness';
+      } else if (productName.includes('post')) {
+          return 'post';
+      } else {
+          return 'accessories'; // Default category
+      }
+  }
+});
+
+*/
