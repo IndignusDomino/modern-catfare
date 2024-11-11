@@ -142,7 +142,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 
 
-/*
+
+
+/* NO IDEA HOW TO DO
 // sort by category
 document.addEventListener('DOMContentLoaded', (event) => {
   const productsList = document.getElementById('products-list');
@@ -199,5 +201,89 @@ document.addEventListener('DOMContentLoaded', (event) => {
       }
   }
 });
-
 */
+
+
+
+
+
+
+
+
+
+// CART MODAL
+document.addEventListener('DOMContentLoaded', (event) => {
+  const openCartModalButton = document.getElementById('open-cart-modal');
+  openCartModalButton.addEventListener('click', openCartModal);
+  const cartModal = document.getElementById('cart-modal');
+const addToCartButtons = document.querySelectorAll('.add-to-cart');
+const cartItemsContainer = document.querySelector('.cart-items');
+const subtotalElement = document.getElementById('subtotal-amount');
+const grandTotalElement = document.getElementById('grand-total-amount');
+
+let cart = [];
+});
+
+function openCartModal() {
+  cartModal.classList.add('open');
+}
+
+function closeCartModal() {
+  cartModal.classList.remove('open');
+}
+
+/*
+function updateCartDisplay() {
+  cartItemsContainer.innerHTML = '';
+  cart.forEach(item => {
+    const cartItem = document.createElement('li');
+    cartItem.classList.add('cart-item');
+    cartItem.innerHTML = `
+        <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+        <div class="cart-item-details">
+          <h3 class="cart-item-title">${item.name}</h3>
+          <div class="cart-item-quantity">
+            <button class="decrement-quantity">-</button>
+            <span class="quantity">${item.quantity}</span>
+            <button class="increment-quantity">+</button>
+          </div>
+          <p class="cart-item-price">${item.price} €</p>
+        </div>
+      `;
+
+    cartItemsContainer.appendChild(cartItem);
+  });
+
+  updateCartTotals();
+}
+
+function updateCartTotals() {
+  let subtotal = 0;
+  cart.forEach(item => {
+    subtotal += item.price * item.quantity;
+  });
+
+  subtotalElement.textContent = subtotal.toFixed(2);
+  grandTotalElement.textContent = subtotal.toFixed(2); // 
+}
+
+addToCartButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const productCard = button.closest('.product-card');
+    const image = productCard.querySelector('.product-image').src;
+    const name = productCard.querySelector('.product-title').textContent;
+    const price = parseFloat(productCard.querySelector('.product-price').textContent); 
+
+ 
+    const existingItemIndex = cart.findIndex(item => item.name === name);
+
+    if (existingItemIndex > -1) {
+      cart[existingItemIndex].quantity += 1;
+    } else {
+      cart.push({ image, name, price, quantity: 1 });
+    }
+    updateCartDisplay();
+  });
+});
+
+
