@@ -89,29 +89,201 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 
 
-//product sorting asc desc
 
-const productsList = document.getElementById('products-list');
-const sortByNameDropdown = document.getElementById('sort-by-name'); 
 
-sortByNameDropdown.addEventListener('change', () => {
+//sorty by name
+document.addEventListener('DOMContentLoaded', (event) => {
+  const productsList = document.getElementById('products-list');
+  const sortByNameDropdown = document.getElementById('sort-name'); 
+
+  sortByNameDropdown.addEventListener('change', () => {
     const sortOrder = sortByNameDropdown.value;
     const products = Array.from(productsList.querySelectorAll('.product'));
 
     products.sort((a, b) => {
-        const nameA = a.querySelector('.product-title').textContent.toLowerCase();
-        const nameB = b.querySelector('.product-title').textContent.toLowerCase();
+      const nameA = a.querySelector('.product-title').textContent.toLowerCase();
+      const nameB = b.querySelector('.product-title').textContent.toLowerCase();
 
-        if (sortOrder === 'asc') {
-            return nameA.localeCompare(nameB);
-        } else {
-            return nameB.localeCompare(nameA);
-        }
+      return sortOrder === 'asc' ? nameA.localeCompare(nameB) : nameB.localeCompare(nameA); 
     });
 
-    // Remove existing product elements
     productsList.innerHTML = '';
-
-    // Add sorted product elements back to the list
-    products.forEach(product => productsList.appendChild(product));
+    products.forEach(product => productsList.appendChild(product)); 
+  });
 });
+
+
+
+
+// sort by price
+document.addEventListener('DOMContentLoaded', (event) => {
+  const productsList = document.getElementById('products-list');
+  const sortByPriceDropdown = document.getElementById('sort-price'); 
+
+  sortByPriceDropdown.addEventListener('change', () => {
+      const sortOrder = sortByPriceDropdown.value;
+      const products = Array.from(productsList.querySelectorAll('.product'));
+
+      products.sort((a, b) => {
+          const priceA = parseFloat(a.querySelector('.product-price').textContent.replace(/[^0-9.]/g, '')); 
+          const priceB = parseFloat(b.querySelector('.product-price').textContent.replace(/[^0-9.]/g, ''));
+
+          if (sortOrder === 'asc') {
+              return priceA - priceB;
+          } else {
+              return priceB - priceA;
+          }
+      });
+
+      productsList.innerHTML = '';
+      products.forEach(product => productsList.appendChild(product));
+  });
+});
+
+
+
+
+
+/* NO IDEA HOW TO DO
+// sort by category
+document.addEventListener('DOMContentLoaded', (event) => {
+  const productsList = document.getElementById('products-list');
+  const sortByCategoryDropdown = document.getElementById('sort-category'); 
+
+  sortByCategoryDropdown.addEventListener('change', () => {
+      const selectedCategory = sortByCategoryDropdown.value;
+      const products = Array.from(productsList.querySelectorAll('.product'));
+
+      products.sort((a, b) => {
+          // Get the category of each product 
+          const categoryA = getCategory(a);
+          const categoryB = getCategory(b);
+
+          // Comparison logic
+          if (selectedCategory === 'sort-x-category') {
+              // No specific category selected, maintain original order
+              return 0; 
+          } else if (categoryA === selectedCategory && categoryB !== selectedCategory) {
+              // a is in the selected category, b is not
+              return -1; 
+          } else if (categoryA !== selectedCategory && categoryB === selectedCategory) {
+              // b is in the selected category, a is not
+              return 1; 
+          } else {
+              // Both are in the selected category or neither are
+              return 0; 
+          }
+      });
+
+      productsList.innerHTML = '';
+      products.forEach(product => productsList.appendChild(product));
+  });
+
+  // Helper function to determine the category of a product (replace with your actual logic)
+  function getCategory(productElement) {
+      const productName = productElement.querySelector('.product-title').textContent.toLowerCase();
+      if (productName.includes('helmet')) {
+          return 'helmet';
+      } else if (productName.includes('visor')) {
+          return 'visor';
+      } else if (productName.includes('fatigue')) {
+          return 'fatigue';
+      } else if (productName.includes('vest')) {
+          return 'vest';
+      } else if (productName.includes('claw')) {  // Assuming "CAT-ANA CLAWS 401" falls under 'claw'
+          return 'claw';
+      } else if (productName.includes('harness')) {
+          return 'harness';
+      } else if (productName.includes('post')) {
+          return 'post';
+      } else {
+          return 'accessories'; // Default category
+      }
+  }
+});
+*/
+
+
+
+
+
+
+
+
+
+// CART MODAL
+document.addEventListener('DOMContentLoaded', (event) => {
+  const openCartModalButton = document.getElementById('open-cart-modal');
+  openCartModalButton.addEventListener('click', openCartModal);
+  const cartModal = document.getElementById('cart-modal');
+const addToCartButtons = document.querySelectorAll('.add-to-cart');
+const cartItemsContainer = document.querySelector('.cart-items');
+const subtotalElement = document.getElementById('subtotal-amount');
+const grandTotalElement = document.getElementById('grand-total-amount');
+
+let cart = [];
+});
+
+function openCartModal() {
+  cartModal.classList.add('open');
+}
+
+function closeCartModal() {
+  cartModal.classList.remove('open');
+}
+
+/*
+function updateCartDisplay() {
+  cartItemsContainer.innerHTML = '';
+  cart.forEach(item => {
+    const cartItem = document.createElement('li');
+    cartItem.classList.add('cart-item');
+    cartItem.innerHTML = `
+        <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+        <div class="cart-item-details">
+          <h3 class="cart-item-title">${item.name}</h3>
+          <div class="cart-item-quantity">
+            <button class="decrement-quantity">-</button>
+            <span class="quantity">${item.quantity}</span>
+            <button class="increment-quantity">+</button>
+          </div>
+          <p class="cart-item-price">${item.price} €</p>
+        </div>
+      `;
+
+    cartItemsContainer.appendChild(cartItem);
+  });
+
+  updateCartTotals();
+}
+
+function updateCartTotals() {
+  let subtotal = 0;
+  cart.forEach(item => {
+    subtotal += item.price * item.quantity;
+  });
+
+  subtotalElement.textContent = subtotal.toFixed(2);
+  grandTotalElement.textContent = subtotal.toFixed(2); // 
+}
+
+addToCartButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const productCard = button.closest('.product-card');
+    const image = productCard.querySelector('.product-image').src;
+    const name = productCard.querySelector('.product-title').textContent;
+    const price = parseFloat(productCard.querySelector('.product-price').textContent); 
+
+ 
+    const existingItemIndex = cart.findIndex(item => item.name === name);
+
+    if (existingItemIndex > -1) {
+      cart[existingItemIndex].quantity += 1;
+    } else {
+      cart.push({ image, name, price, quantity: 1 });
+    }
+    updateCartDisplay();
+  });
+});
+
+
