@@ -24,8 +24,6 @@
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="styles-shop.css" />
 
-    <script src="app.js"></script> 
-
     <title>SHOP</title>
   </head>
   
@@ -51,21 +49,30 @@
         </div>
 
         <div class="nav-right">
-          <button class ="open-cart-modal" id="open-cart-modal" onclick="openCartModal()">BAG</button>
+          <button class ="open-cart-modal" id="open-cart-modal">BAG</button>
         </div>
         
-        <div id="cart-modal" class="cart-modal">
-          <div class="modal-content">
-            <span class="close">&times;</span>
-            <p>Your shopping cart is empty.</p>
+
+        <div class="cart-modal" id="cart-modal">
+          <div class="cart-modal-content">
+              <h2 class="cart-modal-title">Your Cart</h2>
+              <button id="reset-cart">Empty Cart</button> <button id="close-cart-modal">Close</button>
+              <ul class="cart-items">
+              </ul>
+              <div class="cart-summary">
+                  <p class="subtotal">Subtotal: <span id="subtotal-amount">0</span> €</p> 
+                  <p class="grand-total">Grand Total: <span id="grand-total-amount">0</span> €</p> 
+                  <button class="checkout-button">Checkout</button> 
+              </div>
           </div>
-        </div>
+      </div>
 
         
       </nav>
     </header>
 
     <main class="root">
+
       <section class="shop-home" id="shop-home"></section>
         <div class="background">
           <img src="images/cat-002.webp" alt="cat" class="shop-background-img">
@@ -284,5 +291,6 @@
       </div>
     </footer>
     </div>
+    <script src="app.js"></script> 
   </body>
 </html>
