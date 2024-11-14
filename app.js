@@ -256,4 +256,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+//SEARCH
+document.addEventListener('DOMContentLoaded', () => {
+
+  const searchInput = document.getElementById('#search-input');
+  const productsList = document.getElementById('products-list');
+  const products = Array.from(productsList.querySelectorAll('.product')); // Select the li elements with the class 'product'
+
+  searchInput.addEventListener('input', () => {
+    const searchTerm = searchInput.value.toLowerCase();
+
+    products.forEach(product => {
+      const productTitle = product.querySelector('.product-title').textContent.toLowerCase();  
+
+      if (productTitle.includes(searchTerm)) {
+        product.style.display  
+= 'list-item'; // Display as list items
+      } else {
+        product.style.display = 'none';
+      }
+    });
+  });
+});
 

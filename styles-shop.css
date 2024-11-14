@@ -54,6 +54,12 @@ a {
   border-radius: 50px;
 }
 
+#search-input {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+}
+
 .nav-center {
   display: flex;
   justify-content: center;
