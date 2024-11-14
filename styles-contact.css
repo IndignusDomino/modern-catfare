@@ -146,12 +146,20 @@ a {
 }
 
 .contact {
-  position: absolute; /* Set the contact form to absolute positioning */
+  position: absolute;
   top: 50%;
   left: 20%;
-  transform: translate(-50%, -50%); /* Center the form */
-  z-index: 2; /* Ensure the form is above the background image */
+  transform: translate(-50%, -50%);
+  z-index: 2; 
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.2px);
+  -webkit-backdrop-filter: blur(4.2px);
+  padding: 25px;
 }
+
+
 
 .contact form {
   display: flex;

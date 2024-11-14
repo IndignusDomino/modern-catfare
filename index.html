@@ -35,9 +35,16 @@
           <a href="/">MODERN<br />CATFARE</a>
         </div>
 
+        <!--SEARCH START-->
         <div class="search-bar">
-          <input type="text" placeholder="&#128270; Search... " />
+          <input type="text" id="search-input" placeholder="&#128270; Search... " />
         </div>
+
+        <template>
+
+        </template>
+
+        <!--SEARCH END-->
 
         <div class="nav-center">
           <div class="menu-list">
@@ -49,8 +56,24 @@
         </div>
 
         <div class="nav-right">
-          <a href="#">BAG</a>
+          <button class ="open-cart-modal" id="open-cart-modal">BAG</button>
         </div>
+        
+
+        <div class="cart-modal" id="cart-modal">
+          <div class="cart-modal-content">
+              <h2 class="cart-modal-title">Your Cart</h2>
+              <button id="reset-cart">Empty Cart</button> <button id="close-cart-modal">Close</button>
+              <ul class="cart-items">
+              </ul>
+              <div class="cart-summary">
+                  <p class="subtotal">Subtotal: <span id="subtotal-amount">0</span> €</p> 
+                  <p class="grand-total">Grand Total: <span id="grand-total-amount">0</span> €</p> 
+                  <button class="checkout-button">Checkout</button> 
+              </div>
+          </div>
+      </div>
+
       </nav>
     </header>
 
@@ -128,5 +151,6 @@
       </div>
     </footer>
     </div>
+    <script src="app.js"></script> 
   </body>
 </html>
