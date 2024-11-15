@@ -42,13 +42,15 @@ a {
   text-align: center;
 }
 
-.search-bar {
+#search-input {
   margin-left: 5px;
   margin-right: 20px;
   opacity: 0.5;
+  border-radius: 50px;
+  padding: 5px;
 }
 
-.search-bar input[type="text"] {
+#search-input input[type="text"] {
   padding: 5px;
   border: 1px solid #ccc;
   border-radius: 50px;
@@ -197,12 +199,13 @@ a {
 }
 
 .checkout-button {
-  background-color: #2a742e;
+  background-color: #242424;
   color: white;
   border: none;
   padding: 10px 20px;
   cursor: pointer;
   width: 100%;
+  border-radius: 50px;
 }
 
 #reset-cart {
@@ -215,6 +218,7 @@ a {
   border-radius: 4px; 
   margin-right: 10px; 
   margin-bottom: 20px;
+  border-radius: 25px;
 }
 
 #reset-cart:hover {
