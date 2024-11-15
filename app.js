@@ -56,6 +56,7 @@ const products = [
     description: "Description for product 702.",
     image: "https://raw.githubusercontent.com/IndignusDomino/modern-catfare/main/images/07-post/post-002.png",
   },
+  
   // Add more products as needed
 ];
 
@@ -268,7 +269,6 @@ document.addEventListener('DOMContentLoaded', () => {
       products.forEach(product => {
           const productTitle = product.querySelector('.product-title').textContent.toLowerCase();  
 
-
           if (productTitle.includes(searchTerm)) {
               product.style.display  
 = 'list-item'; 
@@ -277,5 +277,30 @@ document.addEventListener('DOMContentLoaded', () => {
           }
       });
   });
+});
+
+
+
+//Make the buy now button functional
+document.addEventListener('DOMContentLoaded', () => {
+const buyNowButtons = document.querySelectorAll('.product-buy');
+buyNowButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const productCard = button.closest('.product-card');
+        const image = productCard.querySelector('.product-image').src;
+        const name = productCard.querySelector('.product-title').textContent;
+        const price = parseFloat(productCard.querySelector('.product-price').textContent);
+        const existingItemIndex = cart.findIndex(item => item.name === name);
+
+        if (existingItemIndex > -1) {
+            cart[existingItemIndex].quantity += 1;
+        } else {
+            cart.push({ image, name, price, quantity: 1 });
+        }
+
+        updateCartDisplay();
+        openCartModal();
+    });
+});
 });
 

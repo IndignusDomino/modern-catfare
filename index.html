@@ -36,14 +36,35 @@
         </div>
 
         <!--SEARCH START-->
-        <div class="search-bar">
-          <input type="text" id="search-input" placeholder="&#128270; Search... " />
-        </div>
+        <form action="shop.html" method="get">
+          <input type="text" id="search-input" name="q" placeholder="&#128270; Search... " />
+        </form>
 
-        <template>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const searchInput = document.getElementById('search-input');
+                const productsList = document.getElementById('products-container').querySelector('#products-list');
+                const products = Array.from(productsList.querySelectorAll('.product'));
 
-        </template>
-
+                function getSearchTermFromURL() {
+                    const urlParams = new URLSearchParams(window.location.search);
+                    return urlParams.get('q') || '';
+                }
+                searchInput.value = getSearchTermFromURL();
+                searchInput.addEventListener('input', () => {
+                    const searchTerm = searchInput.value.toLowerCase();
+                    products.forEach(product => {
+                        const productTitle = product.querySelector('.product-title').textContent.toLowerCase();
+                        if (productTitle.includes(searchTerm)) {
+                            product.style.display = 'list-item';
+                        } else {
+                            product.style.display = 'none';
+                        }
+                    });
+                });
+                searchInput.dispatchEvent(new Event('input'));
+            });
+        </script>
         <!--SEARCH END-->
 
         <div class="nav-center">
