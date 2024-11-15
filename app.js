@@ -41,7 +41,7 @@ const products = [
     image: "https://raw.githubusercontent.com/IndignusDomino/modern-catfare/main/images/05-vest/vest-002.png",
   },
   {
-    category: "Harness",
+    category: "Accessory",
     id: 6,
     name: "PLUSH HARNESS 602",
     price: "6.02 €",
@@ -49,7 +49,7 @@ const products = [
     image: "https://raw.githubusercontent.com/IndignusDomino/modern-catfare/main/images/06-harness/harness-002.png",
   },
   {
-    category: "Harness",
+    category: "Accessory",
     id: 7,
     name: "SCRATCH POST 702",
     price: "7.02 €",
@@ -242,7 +242,7 @@ document.addEventListener('DOMContentLoaded', () => {
               if (event.target.classList.contains('decrement-quantity')) {
                   cart[existingItemIndex].quantity -= 1;
                   if (cart[existingItemIndex].quantity < 1) {
-                      cart.splice(existingItemIndex, 1); // Remove item if quantity is 0
+                      cart.splice(existingItemIndex, 1);
                   }
               } else {
                   cart[existingItemIndex].quantity += 1;
@@ -258,24 +258,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //SEARCH
 document.addEventListener('DOMContentLoaded', () => {
-
-  const searchInput = document.getElementById('#search-input');
-  const productsList = document.getElementById('products-list');
-  const products = Array.from(productsList.querySelectorAll('.product')); // Select the li elements with the class 'product'
+  const searchInput = document.getElementById('search-input');
+  const productsList = document.getElementById('products-container').querySelector('#products-list'); 
+  const products = Array.from(productsList.querySelectorAll('.product'));
 
   searchInput.addEventListener('input', () => {
-    const searchTerm = searchInput.value.toLowerCase();
+      const searchTerm = searchInput.value.toLowerCase();
 
-    products.forEach(product => {
-      const productTitle = product.querySelector('.product-title').textContent.toLowerCase();  
+      products.forEach(product => {
+          const productTitle = product.querySelector('.product-title').textContent.toLowerCase();  
 
-      if (productTitle.includes(searchTerm)) {
-        product.style.display  
-= 'list-item'; // Display as list items
-      } else {
-        product.style.display = 'none';
-      }
-    });
+
+          if (productTitle.includes(searchTerm)) {
+              product.style.display  
+= 'list-item'; 
+          } else {
+              product.style.display = 'none';
+          }
+      });
   });
 });
 
